@@ -3,6 +3,7 @@ import { useFetchGifs } from '../hooks/useFetchGifs';
 import { GifGridItem } from './GifGridItem';
 
 export const GifGrid = ({ category }) => {
+  // destructuring del estado del hook
   const { data: images, loading } = useFetchGifs(category);
 
   return (
