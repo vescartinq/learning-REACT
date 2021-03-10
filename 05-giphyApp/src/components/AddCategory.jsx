@@ -13,7 +13,8 @@ export const AddCategory = ({ setCategories }) => {
     e.preventDefault();
 
     if (inputValue.trim().length > 2) {
-      setCategories((newInput) => [inputValue, ...newInput]);
+      //invertir el spread op para que primero aparezca la nueva categoria, y luego la antigua
+      setCategories((otherValues) => [inputValue, ...otherValues]);
       setInputValue('');
     }
   };
