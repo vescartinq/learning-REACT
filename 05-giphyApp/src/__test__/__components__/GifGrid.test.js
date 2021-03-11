@@ -2,10 +2,10 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { shallow } from 'enzyme';
 
-import { GifGrid } from './../components/GifGrid';
+import { GifGrid } from '../../components/GifGrid';
 
-import { useFetchGifs } from '../hooks/useFetchGifs';
-jest.mock('../hooks/useFetchGifs'); //simulamos la llamada a la API y controlamos la información
+import { useFetchGifs } from '../../hooks/useFetchGifs';
+jest.mock('./../../hooks/useFetchGifs.js'); //simulamos la llamada a la API y controlamos la información
 
 describe('GifGrid', () => {
   let wrapper;

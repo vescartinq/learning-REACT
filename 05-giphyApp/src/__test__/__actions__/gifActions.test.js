@@ -2,7 +2,7 @@ import React from 'react';
 // import '@testing-library/jest-dom';
 import { shallow } from 'enzyme';
 
-import { getGifs } from './../actions/gifActions';
+import { getGifs } from '../../actions/gifActions';
 
 describe('getGifs', () => {
   test('should return 20 elements', async () => {
