@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GiftGridItem should show GiftGridItem component working  1`] = `
+<div
+  className="card animate__animated animate__fadeIn"
+>
+  <img
+    alt="Avengers"
+    src="https://localhost/algo.jpg"
+  />
+  <p>
+     
+    Avengers
+     
+  </p>
+</div>
+`;
