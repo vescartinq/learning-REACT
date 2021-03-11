@@ -30,4 +30,23 @@ describe('AddCategory', () => {
 
     expect(setCategories).not.toHaveBeenCalled();
   });
+
+  test('should call setCategories and clean input box', () => {
+    const value = 'Thor';
+
+    // simular inputChange
+    const input = wrapper.find('input');
+    input.simulate('change', { target: { value } });
+
+    //simular submit
+    wrapper.find('form').simulate('submit', { preventDefault() {} });
+
+    // setCategories se debe llamar una vez
+    expect(setCategories).toHaveBeenCalled();
+    expect(setCategories).toHaveBeenCalledTimes(1);
+    expect(setCategories).toHaveBeenCalledWith(expect.any(Function));
+
+    //el valor input se resetea
+    expect(wrapper.find('input').prop('value')).toBe('');
+  });
 });
