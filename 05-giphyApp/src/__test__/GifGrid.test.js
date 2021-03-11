@@ -23,27 +23,39 @@ describe('GifGrid', () => {
   });
 
   test('should render GifGrid component', () => {
-    //devolvemos el valor que queramos como respuesta de la API, en este caso los valores default
-
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('should show items when upload images with useFetchGifs', () => {
+  test('should not show loading when upload images with useFetchGifs', () => {
+    // simulamos la respuesta de la API
     const gifs = [
       {
         id: 'ABC',
         url: 'https://localhost/algo.jpg',
         title: 'Algo',
       },
+      {
+        id: '123',
+        url: 'https://localhost/algo.jpg',
+        title: 'Algo',
+      },
     ];
 
+    // ejecutamos customHook que actua en el componente
     useFetchGifs.mockReturnValue({
       data: gifs,
       loading: false,
     });
 
+    // renderizamos de nuevo el componente por el UseEffect
     wrapper = shallow(<GifGrid category={category} />);
 
-    expect(wrapper).toMatchSnapshot();
+    //Buscamos el div del loading
+    const p = wrapper.find('p');
+
+    // Esperamos que el loading no exista
+    expect(p.exists()).toBe(false);
+    // Esperamos que el componente ejecute tantos items como gifs hemos recibido de la API (mediante nuestro Snapshot)
+    expect(wrapper.find('GifGridItem').length).toBe(gifs.length);
   });
 });
