@@ -10,7 +10,7 @@ export const MultipleCustomHooks = () => {
     `https://www.breakingbadapi.com/api/quotes/${counter}`
   );
 
-  const { author, quote } = !!data && data[0];
+  const { author, quote } = !!data && data[0]; //si no es null y no es no data (si existe data), regresa primera posición de data
 
   return (
     <div>
@@ -26,7 +26,7 @@ export const MultipleCustomHooks = () => {
         </blockquote>
       )}
 
-      <button className="btn btn-primary" onClick={increment}>
+      <button className="btn btn-primary" onClick={() => increment(1)}>
         Siguiente quote
       </button>
     </div>
