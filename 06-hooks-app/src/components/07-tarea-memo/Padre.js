@@ -4,30 +4,38 @@ import { useState } from 'react';
 
 import '../02-useEffect/effects.css';
 
+
 export const Padre = () => {
-  const numeros = [2, 4, 6, 8, 10];
-  const [valor, setValor] = useState(0);
 
-  // const incrementar = ( num ) => {
-  //     setValor( valor + num )
-  // }
-  const incrementar = useCallback(
-    (num) => {
-      setValor((v) => v + num);
-    },
-    [setValor]
-  );
+    const numeros = [2,4,6,8,10];
+    const [valor, setValor] = useState(0);
 
-  return (
-    <div>
-      <h1>Padre</h1>
-      <p> Total: {valor} </p>
+    // const incrementar = ( num ) => {
+    //     setValor( valor + num )
+    // }
+    const incrementar = useCallback( (num) => {
+        setValor( v => v + num )
+    }, [ setValor ]);
 
-      <hr />
 
-      {numeros.map((n) => (
-        <Hijo key={n} numero={n} incrementar={incrementar} />
-      ))}
-    </div>
-  );
-};
+
+    return (
+        <div>
+            <h1>Padre</h1>
+            <p> Total: { valor } </p>
+
+            <hr />
+
+            {
+                numeros.map( n => (
+                    <Hijo 
+                        key={ n }
+                        numero={ n }
+                        incrementar={ incrementar }
+                    />
+                ))
+            }
+            {/* <Hijo /> */}
+        </div>
+    )
+}
