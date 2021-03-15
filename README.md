@@ -2,7 +2,7 @@
 
 ---
 
-![react](https://user-images.githubusercontent.com/65297719/111213718-5bd0c600-85d1-11eb-9899-c7fd4c06a6a4.jpg)
+![react](https://user-images.githubusercontent.com/65297719/111213941-9a668080-85d1-11eb-81bd-cfc925e0cdc2.jpg)
 ![redux-logo-landscape](https://user-images.githubusercontent.com/65297719/111213728-5e332000-85d1-11eb-9117-f8789e65f29f.jpg)
 ![MERN](https://user-images.githubusercontent.com/65297719/111213738-5ffce380-85d1-11eb-9f96-1f2de4e46b53.jpg)
 
