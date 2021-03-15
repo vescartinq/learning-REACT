@@ -4,29 +4,30 @@ import { ShowIncrement } from './ShowIncrement';
 import '../02-useEffect/effects.css';
 
 export const CallbackHook = () => {
-  const [newCounter, setNewCounter] = useState(10);
 
-  // const increment = () => {
-  //     setNewCounter( newCounter + 1 );
-  // }
+    const [counter, setCounter] = useState( 10 );
 
-  const increment = useCallback(
-    (num) => {
-      setNewCounter((c) => c + num);
-    },
-    [setNewCounter]
-  );
+    // const increment = () => {
+    //     setCounter( counter + 1 );
+    // }
 
-  useEffect(() => {
-    // ???
-  }, [increment]);
+    const increment = useCallback( (num) => {
+        setCounter( c => c + num );
+    }, [ setCounter ] );
 
-  return (
-    <div>
-      <h1>useCallback Hook: {newCounter} </h1>
-      <hr />
+    
+    useEffect( () => {
+        // ???
+    }, [increment] )
 
-      <ShowIncrement increment={increment} />
-    </div>
-  );
-};
+
+    return (
+        <div>
+            <h1>useCallback Hook:  { counter }  </h1>
+            <hr />
+
+            <ShowIncrement increment={ increment } />
+
+        </div>
+    )
+}

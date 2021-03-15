@@ -3,67 +3,73 @@ import { useForm } from '../../hooks/useForm';
 import './effects.css';
 
 export const FormWithCustomHook = () => {
-  const [formValues, handleInputChange] = useForm({
-    name: '',
-    email: '',
-    password: '',
-  });
 
-  const { name, email, password } = formValues;
 
-  useEffect(() => {
-    // console.log('email cambió')
-  }, [email]);
+    const [ formValues, handleInputChange ] = useForm({
+        name: '',
+        email: '',
+        password: ''
+    });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const { name, email, password } = formValues;
 
-    console.log(formValues);
-  };
+    useEffect( () => {
+        console.log('email cambió')
+    }, [ email ]);
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <h1>FormWithCustomHook</h1>
-      <hr />
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-      <div className="form-group">
-        <input
-          type="text"
-          name="name"
-          className="form-control"
-          placeholder="Tu nombre"
-          autoComplete="off"
-          value={name}
-          onChange={handleInputChange}
-        />
-      </div>
+        console.log( formValues );
+    }
 
-      <div className="form-group">
-        <input
-          type="text"
-          name="email"
-          className="form-control"
-          placeholder="email@gmail.com"
-          autoComplete="off"
-          value={email}
-          onChange={handleInputChange}
-        />
-      </div>
 
-      <div className="form-group">
-        <input
-          type="password"
-          name="password"
-          className="form-control"
-          placeholder="*****"
-          value={password}
-          onChange={handleInputChange}
-        />
-      </div>
+    return (
+        <form onSubmit={ handleSubmit }>
+            <h1>FormWithCustomHook</h1>
+            <hr />
 
-      <button type="submit" className="btn btn-primary">
-        Guardar
-      </button>
-    </form>
-  );
-};
+            <div className="form-group">
+                <input 
+                    type="text"
+                    name="name"
+                    className="form-control"
+                    placeholder="Tu nombre"
+                    autoComplete="off"
+                    value={ name }
+                    onChange={ handleInputChange }
+                />
+            </div>
+
+
+            <div className="form-group">
+                <input 
+                    type="text"
+                    name="email"
+                    className="form-control"
+                    placeholder="email@gmail.com"
+                    autoComplete="off"
+                    value={ email }
+                    onChange={ handleInputChange }
+                />
+            </div>
+
+            <div className="form-group">
+                <input 
+                    type="password"
+                    name="password"
+                    className="form-control"
+                    placeholder="*****"
+                    value={ password }
+                    onChange={ handleInputChange }
+                />
+            </div>
+
+
+            <button type="submit" className="btn btn-primary">
+                Guardar
+            </button>
+
+        </form>
+    )
+}
