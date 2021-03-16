@@ -9,8 +9,8 @@ import {
 import { NavBar } from './NavBar';
 
 import { AboutScreen } from './AboutScreen';
-import { LoginScreen } from './LoginScreen';
 import { HomeScreen } from './HomeScreen';
+import { LoginScreen } from './LoginScreen';
 
 export const AppRouter = () => {
   return (
