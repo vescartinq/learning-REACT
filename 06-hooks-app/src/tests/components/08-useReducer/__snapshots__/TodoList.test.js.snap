@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas en <TodoList /> debe de mostrarse correctamente 1`] = `
+exports[`Tests in <TodoList /> should render component 1`] = `
 <ul
   className="list-group list-group-flush"
 >

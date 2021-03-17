@@ -21,6 +21,7 @@ export const AppRouter = () => {
         <div className="container">
           <Switch>
             <Route exact path="/" component={HomeScreen} />
+            {/* Sin el exact, el path "/" debe estar el último */}
 
             <Route exact path="/about" component={AboutScreen} />
             <Route exact path="/login" component={LoginScreen} />

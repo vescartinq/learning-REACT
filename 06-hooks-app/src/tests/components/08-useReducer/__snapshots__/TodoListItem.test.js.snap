@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas en <TodoListItem /> debe de mostrarse correctamente 1`] = `
+exports[`Tests in <TodoListItem /> should render component 1`] = `
 <li
   className="list-group-item"
   key="1"

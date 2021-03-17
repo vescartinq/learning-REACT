@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas en <TodoAdd /> debe de mostrarse correctamente 1`] = `
+exports[`Tests in <TodoAdd /> should render component 1`] = `
 <Fragment>
   <h4>
     Agregar TODO

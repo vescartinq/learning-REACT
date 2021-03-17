@@ -3,27 +3,24 @@ import { mount } from 'enzyme';
 import { HomeScreen } from '../../../components/09-useContext/HomeScreen';
 import { UserContext } from '../../../components/09-useContext/UserContext';
 
+describe('Tests in <HomeScreen />', () => {
+  const user = {
+    name: 'Victor',
+    email: 'victor@gmail.com',
+  };
 
-describe('Pruebas en <HomeScreen />', () => {
+  // SHALLOW solo renderiza componente principal, MOUNT renderiza todos los componentes, padres e hijos
+  const wrapper = mount(
+    <UserContext.Provider
+      value={{
+        user,
+      }}
+    >
+      <HomeScreen />
+    </UserContext.Provider>
+  );
 
-    const user = {
-        name: 'Fernando',
-        email: 'fernando@gmail.com'
-    }
-
-    const wrapper = mount(
-        <UserContext.Provider value={{
-            user
-        }}>
-            <HomeScreen />  
-        </UserContext.Provider>
-    );
-
-    test('debe de mostrarse correctamente', () => {
-
-        expect( wrapper ).toMatchSnapshot();
-        
-    })
-    
-    
-})
+  test('should render component', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+});

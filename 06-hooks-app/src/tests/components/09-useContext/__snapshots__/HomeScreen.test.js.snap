@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas en <HomeScreen /> debe de mostrarse correctamente 1`] = `
+exports[`Tests in <HomeScreen /> should render component 1`] = `
 <div>
   <h1>
     HomeScreen
@@ -8,8 +8,8 @@ exports[`Pruebas en <HomeScreen /> debe de mostrarse correctamente 1`] = `
   <hr />
   <pre>
     {
-   "name": "Fernando",
-   "email": "fernando@gmail.com"
+   "name": "Victor",
+   "email": "victor@gmail.com"
 }
   </pre>
 </div>
