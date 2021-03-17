@@ -1,76 +1,54 @@
-import { renderHook, act } from "@testing-library/react-hooks";
-import { useForm } from "../../hooks/useForm";
+import { renderHook, act } from '@testing-library/react-hooks';
+import { useForm } from '../../hooks/useForm';
 
+describe('Test in useForm', () => {
+  const initialForm = {
+    name: 'victor',
+    email: 'victor@gmail.com',
+  };
 
-describe('Pruebas en useForm', () => {
+  test('should return a default form', () => {
+    const { result } = renderHook(() => useForm(initialForm));
+    const [formValues, handleInputChange, reset] = result.current;
 
-    const initialForm = {
-        name: 'fernando',
-        email: 'fernando@gmail.com'
-    };
+    expect(formValues).toEqual(initialForm);
+    expect(typeof handleInputChange).toBe('function');
+    expect(typeof reset).toBe('function');
+  });
 
+  test('should return de value of the form (change name)', () => {
+    const { result } = renderHook(() => useForm(initialForm));
+    const [, handleInputChange] = result.current;
 
-    test('debe de regresar un formulario por defecto', () => {
-        
-        const { result } = renderHook( () => useForm(initialForm) );
-        const [ formValues, handleInputChange, reset ] = result.current;
-
-        expect( formValues ).toEqual( initialForm );
-        expect( typeof handleInputChange ).toBe( 'function' );
-        expect( typeof reset ).toBe( 'function' );
-        
-
+    act(() => {
+      handleInputChange({
+        target: {
+          name: 'name',
+          value: 'Melissa',
+        },
+      });
     });
 
-    test('debe de cambiar el valor del formulario (cambiar name)', () => {
-        
-        const { result } = renderHook( () => useForm(initialForm) );
-        const [ , handleInputChange ] = result.current;
+    const [formValues] = result.current;
+    expect(formValues).toEqual({ ...initialForm, name: 'Melissa' });
+  });
 
-        act( () => {
+  test('should reset de form value with RESET', () => {
+    const { result } = renderHook(() => useForm(initialForm));
+    const [, handleInputChange, reset] = result.current;
 
-            handleInputChange({
-                target: {
-                    name: 'name',
-                    value: 'Melissa'
-                }
-            });
+    act(() => {
+      handleInputChange({
+        target: {
+          name: 'name',
+          value: 'Melissa',
+        },
+      });
 
-        });
-
-        const [ formValues ] = result.current;
-        expect( formValues ).toEqual( { ...initialForm, name: 'Melissa' } );
-
+      reset();
     });
 
-
-    test('debe de re-establecer el formulario con RESET', () => {
-        
-        const { result } = renderHook( () => useForm(initialForm) );
-        const [ , handleInputChange, reset ] = result.current;
-
-        act( () => {
-
-            handleInputChange({
-                target: {
-                    name: 'name',
-                    value: 'Melissa'
-                }
-            });
-
-            reset();
-
-        });
-
-        const [ formValues ] = result.current;
-        expect( formValues ).toEqual( initialForm );
-        
-
-
-    })
-    
-    
-    
-
-    
-})
+    const [formValues] = result.current;
+    expect(formValues).toEqual(initialForm);
+  });
+});
