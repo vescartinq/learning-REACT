@@ -124,9 +124,9 @@ export const heroes = [
     id: 'marvel-wolverine',
     superhero: 'Wolverine',
     publisher: 'Marvel Comics',
-    alter_ego: 'James Logan',
+    alter_ego: 'James Howlett',
     first_appearance: 'The Incredible Hulk #180',
-    characters: 'James Logan',
+    characters: 'James Howlett',
   },
   {
     id: 'marvel-daredevil',

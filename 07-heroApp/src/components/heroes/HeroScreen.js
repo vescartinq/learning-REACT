@@ -14,8 +14,11 @@ export const HeroScreen = ({ history }) => {
   }
 
   const handleReturn = () => {
-    // Para evitar que si entras directamente sin página previa, no rompa la app
-    history.length <= 2 ? history.push('/') : history.goBack();
+    if (history.length <= 2) {
+      history.push('/');
+    } else {
+      history.goBack();
+    }
   };
 
   const {

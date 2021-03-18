@@ -1,21 +1,20 @@
 import React, { useContext } from 'react';
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../auth/AuthContext';
-import { actionTypes } from '../../types/actionTypes';
+import { types } from '../../types/types';
 
 export const Navbar = () => {
   const {
     user: { name },
     dispatch,
   } = useContext(AuthContext);
-
   const history = useHistory(); // lo mismo que facilitar al Navbar el history por props
 
   const handleLogout = () => {
     history.replace('/login');
 
     dispatch({
-      type: actionTypes.LOGOUT,
+      type: types.logout,
     });
   };
 
