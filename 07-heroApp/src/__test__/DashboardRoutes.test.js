@@ -13,6 +13,7 @@ describe('DashboardRouter', () => {
       name: 'Victor',
     },
   };
+
   test('should render <DashboardRouter/> component', () => {
     const wrapper = mount(
       <AuthContext.Provider value={contextValue}>
