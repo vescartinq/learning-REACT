@@ -3,23 +3,17 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDFXW2W2SNV0lmj8HJogeu267hdD2HR5WE",
-    authDomain: "react-app-cursos.firebaseapp.com",
-    databaseURL: "https://react-app-cursos.firebaseio.com",
-    projectId: "react-app-cursos",
-    storageBucket: "react-app-cursos.appspot.com",
-    messagingSenderId: "959679322615",
-    appId: "1:959679322615:web:89d8e604eee1b5fd68f6f2"
+  apiKey: 'AIzaSyAY3hCYSbzDd04tQ8uIsfLrLEAUH7oBd6A',
+  authDomain: 'learning-react-f3c35.firebaseapp.com',
+  projectId: 'learning-react-f3c35',
+  storageBucket: 'learning-react-f3c35.appspot.com',
+  messagingSenderId: '584769417491',
+  appId: '1:584769417491:web:84be0d1aae4ed82f42eae6',
 };
-  
+
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-
-export {
-    db,
-    googleAuthProvider,
-    firebase
-}
+export { db, googleAuthProvider, firebase };
