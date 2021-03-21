@@ -12,6 +12,7 @@ export const startLoginEmailPassword = (email, password) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
+        console.log(user);
         dispatch(login(user.uid, user.displayName));
 
         dispatch(finishLoading());
@@ -47,6 +48,7 @@ export const startGoogleLogin = () => {
       .auth()
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
+        // console.log(user);
         dispatch(login(user.uid, user.displayName));
       });
   };
