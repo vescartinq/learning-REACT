@@ -1,16 +1,27 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
 import { JournalEntries } from './JournalEntries';
+import { startLogout } from '../../redux/actions/auth';
 
 export const Sidebar = () => {
+  const dispatch = useDispatch();
+
+  const hanleLogout = () => {
+    dispatch(startLogout());
+  };
+
   return (
     <aside className="journal__sidebar">
       <div className="journal__sidebar-navbar">
         <h3 className="mt-5">
           <i className="far fa-moon"></i>
-          <span> Victor</span>
+          <span> Fernando</span>
         </h3>
 
-        <button className="btn">Logout</button>
+        <button className="btn" onClick={hanleLogout}>
+          Logout
+        </button>
       </div>
 
       <div className="journal__new-entry">
