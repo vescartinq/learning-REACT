@@ -5,9 +5,18 @@ import {
   startLoadingNotes,
   startNewNote,
   startSaveNote,
+  startUploading,
 } from '../actions/notes';
 import { types } from '../types/types';
 import { db } from '../firebase/firebase-config';
+import { fileUpload } from '../helpers/fileUpload';
+
+jest.mock('../helpers/fileUpload', () => ({
+  fileUpload: jest.fn(() => {
+    return 'https://hola-mundo.com/cosa.jpg';
+    // return Promise.resolve('https://hola-mundo.com/cosa.jpg');
+  }),
+}));
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -18,7 +27,7 @@ const initialState = {
   },
   notes: {
     active: {
-      id: '02L6n2ZPdEgpELw8y7ML',
+      id: 'VsgdydEGjg7VTig16Pn5',
       title: 'Hola',
       body: 'Mundo',
     },
@@ -26,6 +35,9 @@ const initialState = {
 };
 
 let store;
+
+// Evitar error de ScrollTo al pasar los test
+global.scrollTo = jest.fn();
 
 describe('Testing notes-actions', () => {
   beforeEach(() => {
@@ -100,5 +112,16 @@ describe('Testing notes-actions', () => {
     const docRef = await db.doc(`/TESTING/journal/notes/${note.id}`).get();
 
     expect(docRef.data().title).toBe(note.title);
+  });
+
+  test('startUploading should update url entry', async () => {
+    const file = new File([], 'foto.jpg');
+    await store.dispatch(startUploading(file));
+
+    const docRef = await db
+      .doc('/TESTING/journal/notes/VsgdydEGjg7VTig16Pn5')
+      .get();
+
+    expect(docRef.data().url).toBe('https://hola-mundo.com/cosa.jpg');
   });
 });
