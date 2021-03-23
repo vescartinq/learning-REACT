@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import validator from 'validator';
+import validator from 'validator'; //libreria específica para validar emails
 
 import { useForm } from '../../hooks/useForm';
 import { setError, removeError } from '../../redux/actions/ui';
