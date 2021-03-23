@@ -7503,6 +7503,11 @@
   dependencies:
     "minimist" "^1.2.5"
 
+"moment@^2.26.0":
+  "integrity" "sha512-oIixUO+OamkUkwjhAVE18rAMfRJNsNe/Stid/gwHSOfHrOtw9EhAY2AHvdKZ/k/MggcYELFCJz/Sn2pL8b8JMw=="
+  "resolved" "https://registry.npmjs.org/moment/-/moment-2.26.0.tgz"
+  "version" "2.26.0"
+
 "move-concurrently@^1.0.1":
   "integrity" "sha1-viwAX9oy4LKa8fBdfEszIUxwH5I="
   "resolved" "https://registry.npmjs.org/move-concurrently/-/move-concurrently-1.0.1.tgz"
