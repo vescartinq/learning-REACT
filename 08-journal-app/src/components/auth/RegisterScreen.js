@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import validator from 'validator'; //libreria específica para validar emails
+import validator from 'validator';
 
 import { useForm } from '../../hooks/useForm';
-import { setError, removeError } from '../../redux/actions/ui';
-import { startRegisterWithEmailPasswordName } from '../../redux/actions/auth';
+import { setError, removeError } from '../../actions/ui';
+import { startRegisterWithEmailPasswordName } from '../../actions/auth';
 
 export const RegisterScreen = () => {
   const dispatch = useDispatch();
@@ -52,7 +52,10 @@ export const RegisterScreen = () => {
     <>
       <h3 className="auth__title">Register</h3>
 
-      <form onSubmit={handleRegister}>
+      <form
+        onSubmit={handleRegister}
+        className="animate__animated animate__fadeIn animate__faster"
+      >
         {msgError && <div className="auth__alert-error">{msgError}</div>}
 
         <input
