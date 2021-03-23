@@ -2,14 +2,32 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
+// En desarrollo utilizará .env.development , en testing utilizará .env.test (281)
 const firebaseConfig = {
-  apiKey: 'AIzaSyAY3hCYSbzDd04tQ8uIsfLrLEAUH7oBd6A',
-  authDomain: 'learning-react-f3c35.firebaseapp.com',
-  projectId: 'learning-react-f3c35',
-  storageBucket: 'learning-react-f3c35.appspot.com',
-  messagingSenderId: '584769417491',
-  appId: '1:584769417491:web:84be0d1aae4ed82f42eae6',
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
 };
+
+// const firebaseConfigTesting = {
+//   apiKey: 'xxxxxxxx',
+//   authDomain: 'xxxxxxxx',
+//   projectId: 'xxxxxxxx',
+//   storageBucket: 'xxxxxxxxxx',
+//   messagingSenderId: 'xxxxxxxx',
+//   appId: 'xxxxxxxxx',
+// };
+
+// if (process.env.NODE_ENV === 'test') {
+//   // testing
+//   firebase.initializeApp(firebaseConfigTesting);
+// } else {
+//   // dev/prod
+//   firebase.initializeApp(firebaseConfig);
+// }
 
 firebase.initializeApp(firebaseConfig);
 
