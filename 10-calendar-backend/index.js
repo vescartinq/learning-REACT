@@ -1,5 +1,5 @@
 const express = require('express');
-require('dotenv').config();
+require('dotenv').config(); // configurador de variables de entorno
 const cors = require('cors');
 
 // Crear el servidor de express
@@ -8,18 +8,14 @@ const app = express();
 // CORS
 app.use(cors());
 
-// Directorio Público
-app.use(express.static('public'));
-
 // Lectura y parseo del body
 app.use(express.json());
 
+// Directorio Público
+app.use(express.static('public'));
+
 // Rutas
-app.get('/', (req, res) => {
-  res.json({
-    ok: true,
-  });
-});
+app.use('/api/auth', require('./routes/authRoute'));
 
 // Escuchar peticiones
 app.listen(process.env.PORT, () => {
