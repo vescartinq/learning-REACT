@@ -1,3 +1,4 @@
+// Para pasar las pruebas, debemos guardar .env.test con la URL donde acceder al backend
 import { fetchConToken, fetchSinToken } from '../helpers/fetch';
 
 describe('Testing Fetch file on Helpers folder', () => {
