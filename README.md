@@ -21,8 +21,7 @@ Curso orientado a aprender React
 
 ## 2. VIDEOS DEMOSTRACION
 
-- xx
-- xx
+- CalendarAPP: https://mern-calendar-app-venn.herokuapp.com
 
 ## 3. TEMARIO
 
